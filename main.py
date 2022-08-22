@@ -25,12 +25,12 @@ stdvs = [0.0675, 0.0475, 0.09316, 0.1628]
 
 for i in range(4):
     nTurbinParam[:, i] = norm(loc=means[i], scale=stdvs[i]).ppf(nTurbinParam[:,i])
-
+'''
 nTurbinParam[:,0] = 1.306
 nTurbinParam[:,1] = 1.129
 nTurbinParam[:,2] = 1.109
 nTurbinParam[:,3] = 0.489
-
+'''
 # seed 값 설정
 seed = 0
 numpy.random.seed(seed)
