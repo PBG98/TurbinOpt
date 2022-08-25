@@ -1,21 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from tensorflow import keras
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from sklearn.model_selection import train_test_split
-from sklearn.utils.multiclass import type_of_target
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import r2_score
 from tensorflow.keras.models import load_model
 from scipy.stats.distributions import norm
-
-import numpy as np
 import pandas as pd
 import tensorflow as tf
-import matplotlib.pyplot as plt
-
 from pyDOE import *
 
 #lhs로 범위 내 난수 생성

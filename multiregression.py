@@ -1,6 +1,5 @@
 import tensorflow.compat.v1 as tf
 import pandas as pd
-import numpy as np
 
 tf.disable_v2_behavior()
 
