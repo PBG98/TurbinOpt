@@ -15,8 +15,9 @@ class KMeans(object):
         plt.show()
 
         while True:
-            distances = np.sqrt(np.sum((X - self.centers[:, np.newaxis]) ** 2, axis=2))
-            closestClusters = np.argmin(distances, axis=0)
+            distances = np.sqrt(np.sum((X - self.centers[:, np.newaxis]) ** 2, axis=2))  #dimension : k x n x 2
+            #k : number of centroid, n : number of data points, 2 : dimensionality of the data points
+            closestClusters = np.argmin(distances, axis=0)  #distances 함수를 최소화 하는 X값을 찾음
 
             newCenters = np.array([np.mean(X[closestClusters == c], axis=0) for c in range(self.k)])
             if np.all(self.centers - newCenters < 1e-5):
@@ -29,7 +30,7 @@ class KMeans(object):
 
 if __name__ == '__main__':
     with open('data.pkl', 'rb') as f:
-        data = pickle.load(f)
+        data = pickle.load(f)     #data는 200x2 행렬
 
     X = data['x']
 
