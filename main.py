@@ -3,9 +3,11 @@
 
 from tensorflow.keras.models import load_model
 from scipy.stats.distributions import norm
+from pyDOE import *
 import pandas as pd
 import tensorflow as tf
-from pyDOE import *
+import csv
+
 
 #lhs로 범위 내 난수 생성
 nTurbinParam = lhs(4, samples=10000, criterion='center')
@@ -16,6 +18,11 @@ stdvs = [0.0675, 0.0475, 0.09316, 0.1628]
 for i in range(4):
     nTurbinParam[:, i] = norm(loc=means[i], scale=stdvs[i]).ppf(nTurbinParam[:,i])
 
+f = open("RandParam.csv", "w")
+writer = csv.writer(f)
+
+writer.writerows(nTurbinParam)
+f.close()
 
 '''
 nTurbinParam[:,0] = 1.306
