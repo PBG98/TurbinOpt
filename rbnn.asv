@@ -1,0 +1,24 @@
+%Input Data
+Hydro_Param = readtable('hydroparam.csv');
+Hydro_Param = table2array(Hydro_Param);
+Turbin_Param = Hydro_Param(:, 1:4);
+
+%Data Division
+B_tip = Hydro_Param(:,1);
+B_70 = Hydro_Param(:,2);
+A_tip = Hydro_Param(:,3);
+A_70 = Hydro_Param(:,4);
+Cp = Hydro_Param(:, 5);
+
+%Transpose Data
+Turbin_Param = transpose(Turbin_Param);
+Cp = transpose(Cp);
+
+%rbnn param
+eg = 0.001;
+sc = 100;
+
+%run rbnn
+net = newrb(Turbin_Param, Cp, eg, sc);
+
+Turbin_Param_Opt = [1.306;1.129;]
