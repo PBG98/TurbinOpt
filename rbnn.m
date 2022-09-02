@@ -23,10 +23,10 @@ model_rbnn = newrb(Turbin_Param, ref_Cp);
 
 
 %lhs random parameter
-lhs_B_tip = lhsdesign_modified(10000, 0.901,1.306);
-lhs_B_70 = lhsdesign_modified(10000, 00.913,1.198);
-lhs_A_tip = lhsdesign_modified(10000, 0.497,1.553);
-lhs_A_70 = lhsdesign_modified(10000, 0.489,1.466);
+lhs_B_tip = lhsdesign_modified(480000, 0.901,1.306);
+lhs_B_70 = lhsdesign_modified(480000, 00.913,1.198);
+lhs_A_tip = lhsdesign_modified(480000, 0.497,1.553);
+lhs_A_70 = lhsdesign_modified(480000, 0.489,1.466);
 lhs_turbin_param = horzcat(lhs_B_tip, lhs_B_70, lhs_A_tip, lhs_A_70);
 lhs_turbin_param = transpose(lhs_turbin_param);
 
@@ -35,11 +35,11 @@ rand_Cp = model_rbnn(lhs_turbin_param);
 
 %find max Cp & Turbin Param
 [max_Cp, Index] = max(rand_Cp);
-max_Cp;
-Index;
 
-lhs_turbin_param(:,Index)
+%max_Cp and max_turbin_param
+max_Cp;
+max_turbin_param = lhs_turbin_param(:,Index);
 
 %Opt Paramter by reference(paper)
 Turbin_Param_Opt = [1.306;1.129;1.109;0.489];
-Cp_Opt = model_rbnn(Turbin_Param_Opt);
+Cp_Opt_ref = model_rbnn(Turbin_Param_Opt);
