@@ -11,9 +11,9 @@ import csv
 
 #lhs로 범위 내 난수 생성
 nTurbinParam = lhs(4, samples=10000, criterion='center')
-means = [1.0135, 1.0555, 1.2735, 0.9775]
-stdvs = [0.0675, 0.0475, 0.09316, 0.1628]
-#distribution = [0.2025, 0.1425, 0.2795, 0.4885]
+means = [1.0135, 1.2735, 1.0555, 0.9775]
+stdvs = [0.0675, 0.09316, 0.0475,  0.1628]
+#distribution = [0.2025, 0.2795, 0.1425, 0.4885]
 
 for i in range(4):
     nTurbinParam[:, i] = norm(loc=means[i], scale=stdvs[i]).ppf(nTurbinParam[:,i])
