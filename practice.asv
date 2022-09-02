@@ -1,0 +1,4 @@
+lhs_B_tip = lhsdesign_modified(10, 0.901,1.306);
+lhs_B_70 = lhsdesign_modified(10, 00.913,1.198);
+lhs_A_tip = lhsdesign_modified(10, 0.497,1.306);
+lhs_A_70 = lhsdesign_modified(10, 0.901,1.306);
